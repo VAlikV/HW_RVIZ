@@ -1,0 +1,12 @@
+<launch>
+  <param name ="robot_description" textfile = "$(find rviz_for_robot)/urdf/robot1.urdf" />
+  
+  <arg name= "robot_rviz" default="$(find rviz_for_robot)/RViz/config.rviz"/> 
+<!-- params1.rviz - initial paramaters of the robot -->
+
+  <node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "robot_state_publisher" />
+  <!-- <node name = "rviz_for_robot" pkg = "rviz_for_robot" type = "state_pub" /> -->
+  <node name = "joint_state_publisher_gui" pkg = "joint_state_publisher_gui" type = "joint_state_publisher_gui" />
+  <node name="rviz" pkg = "rviz" type ="rviz" args = "-d $(arg robot_rviz)" />
+
+</launch>
